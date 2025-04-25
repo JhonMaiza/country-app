@@ -1,2 +1,15 @@
-<country-search (searchValue)="onSearch($event)" placeholder="Buscar por capital"/>
-<country-list [countries]="countries()" />
+<country-search (searchValue)="query.set($event)" placeholder="Buscar por capital"/>
+<country-list 
+    [countries]=" countryResource.value() ?? []"
+    [errorMessage]="countryResource.error()"
+    [isEmpty]="countryResource.value()?.length === 0"
+    [isLoading]="countryResource.isLoading()"
+/>
+
+
+<!-- <country-search (searchValue)="onSearch($event)" placeholder="Buscar por capital"/> -->
+<!-- @if( isError()){
+    <h3>{{ isError() }}</h3>  
+} @else {
+    <country-list [countries]="countries()" />
+} -->
