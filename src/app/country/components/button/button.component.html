@@ -1,0 +1,13 @@
+<section class="row mt-2">
+    <div class="flex-col">
+    @for (region of regions(); track $index) {
+        <button 
+            class="btn mr-2 btn-outline w-[100px]"
+            (click)="onClickRegion(region)"
+            [class.btn-primary]="selectedRegion() === region"
+        >
+            {{ region }}
+        </button>
+    }
+</div>
+</section>
